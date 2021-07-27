@@ -1,18 +1,14 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <timer></timer>
-  <control></control>
 </template>
 
 <script>
 import Timer from './components/Timer.vue'
-import Control from './components/Control.vue'
-
 export default {
   name: 'App',
   components: {
-    Timer,
-    Control
+    Timer
   }
 }
 </script>
