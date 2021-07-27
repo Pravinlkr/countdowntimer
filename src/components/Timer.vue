@@ -27,11 +27,12 @@ export default {
             hours: 0,
             minutes:0,
             seconds:0,
-            timeinms:0
+            timeinms:0,
+            timerflag:0
         }
     },
     mounted(){
-        //this.coverTimeInMs();
+        this.emitTimerToParent();
     },
     methods:{
         coverTimeInMs(){
@@ -72,6 +73,13 @@ export default {
         },
         hideTimer(){
             this.isToShowTimer=false;
+            clearInterval(this.seconds);
+        },
+        emitTimerToParent(){
+            this.timerflag = setInterval(function(){
+            this.$emit('timertoapp', {sec:this.timeinms,mint:this.minutes,hrs:this.hours});
+            }.bind(this),1000);
+            //{sec:this.timeinms,mint:this.minutes,hrs:this.hours}
         }
     }
 }
