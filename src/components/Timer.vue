@@ -15,8 +15,8 @@ export default {
         Control
     },
     props:{
-        /*removeTimer:Function,
-        indexOfTimer:Number*/
+        /*removeTimer:Function,*/
+        indexNo:Number
     },
     data(){
         return{
@@ -77,7 +77,7 @@ export default {
         },
         emitTimerToParent(){
             this.timerflag = setInterval(function(){
-            this.$emit('timertoapp', {sec:this.timeinms,mint:this.minutes,hrs:this.hours});
+            this.$emit('timertoapp', {sec:this.timeinms,mint:this.minutes,hrs:this.hours},this.indexNo);
             }.bind(this),1000);
             //{sec:this.timeinms,mint:this.minutes,hrs:this.hours}
         }
